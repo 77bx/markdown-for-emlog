@@ -26,7 +26,7 @@ $isdraft = $hide == 'y' ? true : false;
 </div>
 <div>
 <div id="content-bar"></div>
-     <textarea id="content" name="content" style="width:845px; height:260px;"></textarea>
+     <textarea id="content" name="content" style="width:845px; height:260px;"><?php echo $content; ?></textarea>
 </div>
 <div style="margin:10px 0px 5px 0px;">
     <label for="tag" id="tag_label">文章标签，逗号或空格分隔，过多的标签会影响系统运行效率</label>
