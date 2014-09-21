@@ -50,8 +50,8 @@
         undo: "撤销 - Ctrl+Z",
         redo: "重做 - Ctrl+Y",
         redomac: "重做 - Ctrl+Shift+Z",
-
-		more:"摘要分隔符 [brak] Ctrl+M",
+			
+		more:"摘要分隔符 [break] Ctrl+M",
         help: "Markdown语法帮助"
     };
 
@@ -2240,9 +2240,9 @@
         chunk.selection = "";
         chunk.skipLines(2, 1, true);
     };
+
 	commandProto.doMore = function (chunk, postProcessing) {
 		chunk.startTag = "[break]";
-        chunk.selection = "";
     }
 
 })();
