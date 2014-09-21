@@ -51,6 +51,7 @@
         redo: "重做 - Ctrl+Y",
         redomac: "重做 - Ctrl+Shift+Z",
 
+		more:"摘要分隔符 [brak] Ctrl+M",
         help: "Markdown语法帮助"
     };
 
@@ -1276,6 +1277,9 @@
                             doClick(buttons.undo);
                         }
                         break;
+                    case "m":
+                        doClick(buttons.more);
+                        break;
                     default:
                         return;
                 }
@@ -1494,6 +1498,8 @@
 
             buttons.redo = makeButton("wmd-redo-button", redoTitle, "-220px", null);
             buttons.redo.execute = function (manager) { if (manager) manager.redo(); };
+
+            buttons.more = makeButton("wmd-bold-button", getString("more"), "-280px", bindCommand("doMore"));
 
             if (helpOptions) {
                 var helpButton = document.createElement("li");
@@ -2233,7 +2239,10 @@
         chunk.startTag = "----------\n";
         chunk.selection = "";
         chunk.skipLines(2, 1, true);
+    };
+	commandProto.doMore = function (chunk, postProcessing) {
+		chunk.startTag = "[break]";
+        chunk.selection = "";
     }
-
 
 })();
