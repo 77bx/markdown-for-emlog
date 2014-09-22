@@ -1,6 +1,6 @@
 <?php if(!defined('EMLOG_ROOT')) {exit('error!');}?>
-<?php ?>
 <link rel="stylesheet" type="text/css" href="./views/css/markdown.css?v=1.0.0" />
+<script charset="utf-8" src="./views/js/common.markdown.js?v=1.0.0"></script>
 <script charset="utf-8" src="./views/js/Markdown.Converter.js?v=1.0.0"></script>
 <script charset="utf-8" src="./views/js/Markdown.Editor.js?v=1.0.0"></script>
 <script charset="utf-8" src="./views/js/Markdown.Sanitizer.js?v=1.0.0"></script>
@@ -88,6 +88,7 @@
     <input type="hidden" name="ishide" id="ishide" value="">
     <input type="submit" value="发布文章" onclick="return checkform();" class="button" />
     <input type="hidden" name="author" id="author" value=<?php echo UID; ?> />
+	<input type="hidden" name="editorinfo" id="editorinfo" value="markdown">
     <input type="button" name="savedf" id="savedf" value="保存草稿" onclick="autosave(2);" class="button" />
 </div>
 </div>

@@ -1,11 +1,20 @@
 <?php
 if(!defined('EMLOG_ROOT')) {exit('error!');}
 $isdraft = $hide == 'y' ? true : false;
+$iseditor = strpos($content,'&lt;!--markdown--&gt;');
+if ($iseditor === 0) {
+	$content = substr($content, 21);
 ?>
 <link rel="stylesheet" type="text/css" href="./views/css/markdown.css?v=1.0.0" />
 <script charset="utf-8" src="./views/js/Markdown.Converter.js?v=1.0.0"></script>
 <script charset="utf-8" src="./views/js/Markdown.Editor.js?v=1.0.0"></script>
 <script charset="utf-8" src="./views/js/Markdown.Sanitizer.js?v=1.0.0"></script>
+<script charset="utf-8" src="./views/js/common.markdown.js?v=1.0.0"></script>
+<?php }else{?>
+<script charset="utf-8" src="./editor/kindeditor.js?v=<?php echo Option::EMLOG_VERSION; ?>"></script>
+<script charset="utf-8" src="./editor/lang/zh_CN.js?v=<?php echo Option::EMLOG_VERSION; ?>"></script>
+<script charset="utf-8" src="./views/js/common.kindeditor.js?v=1.0.0"></script>
+<?php }?>
 <div class=containertitle><b><?php if ($isdraft) :?>编辑草稿<?php else:?>编辑文章<?php endif;?></b><span id="msg_2"></span></div><div id="msg"></div>
 <form action="save_log.php?action=edit" method="post" id="addlog" name="addlog">
 <div id="post">
@@ -91,6 +100,7 @@ $isdraft = $hide == 'y' ? true : false;
     <input type="hidden" name="ishide" id="ishide" value="<?php echo $hide; ?>" />
     <input type="hidden" name="gid" value=<?php echo $logid; ?> />
     <input type="hidden" name="author" id="author" value=<?php echo $author; ?> />
+	<input type="hidden" name="editorinfo" id="editorinfo" value="<?php echo $iseditor === 0 ? 'markdown':'';?>">
     <input type="submit" value="保存并返回" onclick="return checkform();" class="button" />
     <input type="button" name="savedf" id="savedf" value="保存" onclick="autosave(2);" class="button" />
     <?php if ($isdraft) :?>
@@ -101,6 +111,9 @@ $isdraft = $hide == 'y' ? true : false;
 </form>
 <div class=line></div>
 <script>
+<?php
+if ($iseditor === 0) {
+?>
 (function () {
 	var Converter = new Markdown.Converter();
 	var content = new Markdown.Editor(Converter, "content");
@@ -108,6 +121,10 @@ $isdraft = $hide == 'y' ? true : false;
 	var excerpt = new Markdown.Editor(Converter, "excerpt");
 	excerpt.run();
 })();
+<?php }else{ ?>
+loadEditor('content');
+loadEditor('excerpt');
+<?php }?>
 checkalias();
 $("#alias").keyup(function(){checkalias();});
 $("#advset").css('display', $.cookie('em_advset') ? $.cookie('em_advset') : '');

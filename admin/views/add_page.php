@@ -1,5 +1,6 @@
 <?php if(!defined('EMLOG_ROOT')) {exit('error!');}?>
 <link rel="stylesheet" type="text/css" href="./views/css/markdown.css?v=1.0.0" />
+<script charset="utf-8" src="./views/js/common.markdown.js?v=1.0.0"></script>
 <script charset="utf-8" src="./views/js/Markdown.Converter.js?v=1.0.0"></script>
 <script charset="utf-8" src="./views/js/Markdown.Editor.js?v=1.0.0"></script>
 <script charset="utf-8" src="./views/js/Markdown.Sanitizer.js?v=1.0.0"></script>
@@ -39,6 +40,7 @@
 <div id="post_button">
     <input name="token" id="token" value="<?php echo LoginAuth::genToken(); ?>" type="hidden" />
     <input type="hidden" name="ishide" id="ishide" value="">
+	<input type="hidden" name="editorinfo" id="editorinfo" value="markdown">
     <input type="submit" value="发布页面" onclick="return checkform();" class="button" />
     <input type="button" name="savedf" id="savedf" value="保存" onclick="autosave(3);" class="button" />
 </div>
