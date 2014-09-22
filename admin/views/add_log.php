@@ -1,9 +1,9 @@
 <?php if(!defined('EMLOG_ROOT')) {exit('error!');}?>
-<link rel="stylesheet" type="text/css" href="./views/css/markdown.css?v=1.0.0" />
-<script charset="utf-8" src="./views/js/common.markdown.js?v=1.0.0"></script>
-<script charset="utf-8" src="./views/js/Markdown.Converter.js?v=1.0.0"></script>
-<script charset="utf-8" src="./views/js/Markdown.Editor.js?v=1.0.0"></script>
-<script charset="utf-8" src="./views/js/Markdown.Sanitizer.js?v=1.0.0"></script>
+<link rel="stylesheet" type="text/css" href="./views/css/markdown.css?v=1.0.1" />
+<script charset="utf-8" src="./views/js/common.markdown.js?v=1.0.1"></script>
+<script charset="utf-8" src="./views/js/Markdown.Converter.js?v=1.0.1"></script>
+<script charset="utf-8" src="./views/js/Markdown.Editor.js?v=1.0.1"></script>
+<script charset="utf-8" src="./views/js/Markdown.Sanitizer.js?v=1.0.1"></script>
 <div class=containertitle><b>写文章</b><span id="msg_2"></span></div>
 <div id="msg"></div>
 <form action="save_log.php?action=add" method="post" enctype="multipart/form-data" id="addlog" name="addlog">

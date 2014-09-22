@@ -5,15 +5,15 @@ $iseditor = strpos($content,'&lt;!--markdown--&gt;');
 if ($iseditor === 0) {
 	$content = substr($content, 21);
 ?>
-<link rel="stylesheet" type="text/css" href="./views/css/markdown.css?v=1.0.0" />
-<script charset="utf-8" src="./views/js/Markdown.Converter.js?v=1.0.0"></script>
-<script charset="utf-8" src="./views/js/Markdown.Editor.js?v=1.0.0"></script>
-<script charset="utf-8" src="./views/js/Markdown.Sanitizer.js?v=1.0.0"></script>
-<script charset="utf-8" src="./views/js/common.markdown.js?v=1.0.0"></script>
+<link rel="stylesheet" type="text/css" href="./views/css/markdown.css?v=1.0.1" />
+<script charset="utf-8" src="./views/js/Markdown.Converter.js?v=1.0.1"></script>
+<script charset="utf-8" src="./views/js/Markdown.Editor.js?v=1.0.1"></script>
+<script charset="utf-8" src="./views/js/Markdown.Sanitizer.js?v=1.0.1"></script>
+<script charset="utf-8" src="./views/js/common.markdown.js?v=1.0.1"></script>
 <?php }else{?>
 <script charset="utf-8" src="./editor/kindeditor.js?v=<?php echo Option::EMLOG_VERSION; ?>"></script>
 <script charset="utf-8" src="./editor/lang/zh_CN.js?v=<?php echo Option::EMLOG_VERSION; ?>"></script>
-<script charset="utf-8" src="./views/js/common.kindeditor.js?v=1.0.0"></script>
+<script charset="utf-8" src="./views/js/common.kindeditor.js?v=1.0.1"></script>
 <?php }?>
 <div class=containertitle><b><?php if ($isdraft) :?>编辑草稿<?php else:?>编辑文章<?php endif;?></b><span id="msg_2"></span></div><div id="msg"></div>
 <form action="save_log.php?action=edit" method="post" id="addlog" name="addlog">
